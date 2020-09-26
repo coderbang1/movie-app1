@@ -1,0 +1,7 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+    <h5 class="text text ml-5 mt-2"> you have been log out, log in to continue</h5>
+        <div class="border-top pt-1">
+            <a class="btn btn-success ml-5 "  href="{% url 'login' %}"> log in</a>
+        </div>
+{% endblock content %}

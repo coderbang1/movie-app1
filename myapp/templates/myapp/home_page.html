@@ -1,0 +1,39 @@
+{% extends "myapp/base.html" %}
+{% block content %}
+<!---zoom effect-->
+<style type="text/css">
+
+  .inner {
+      overflow:hidden;
+}
+   .inner img {
+     transition: all 1.5s ease;
+}
+
+    .inner:hover img{
+       transform: scale(1.5);
+}
+</style>
+
+<div class="container">
+    <div class="row ">
+        {% for movie in movies %}
+        <div class="col">
+            <div class="card shadow mt-3 bg-dark" style="width: 16rem;">
+                <div class="inner">
+                    <img class="card-img-top" src=" {{ movie.image.url }} ">
+                </div>
+
+                <div class="card-body">
+                    <h5><a class="card-title">{{ movie.title }} </a></h5>
+                    <p class="card-text text-success "> Genre//{{ movie.genre }}</p>
+                    <p class="card-text text-danger "> Price:${{ movie.price }}</p>
+                    <p class="card-text text-info "> Rating: {{ movie.rating }}</p>
+                    <a href="#" class="btn btn-primary">details</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content%}
