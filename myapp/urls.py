@@ -1,6 +1,11 @@
 from django.urls import path
+from .views import MovieListVies
 from . import views
 
+
+
 urlpatterns = [
-    path('', views.home,name='home-page'),
+    path('',MovieListVies.as_view(),name='home-page'),
+    path('search/',views.search,name='home-query')
+
 ]

@@ -1,11 +1,8 @@
 {% extends "myapp/base.html" %}
 {% block content %}
 <!---zoom effect-->
+    <h2 class="text text-danger "> Search result</h2>
 <style type="text/css">
-    body {
-      background:Purple;
-      }
-
 
   .inner {
       overflow:hidden;
@@ -20,8 +17,8 @@
 
 </style>
 
-<div class="container">
-    <div class="row ">
+    <div class="container">
+      <div class="row ">
         {% for movie in movies %}
         <div class="col">
             <div class="card shadow mt-3 bg-dark" style="width: 16rem;">
@@ -40,31 +37,4 @@
             </div>
         </div>
         {% endfor %}
-
-    </div>
-</div>
-
- {% if is_paginated %}
-        <div class="  pt-2">
-        {% if page_obj.has_previous %}
-        <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
-        <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
-        {% endif %}
-
-        {% for num in page_obj.paginator.page_range %}
-        {% if page_obj.number == num %}
-        <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
-        {% elif num > page_obj.number|add:'-1' and num < page_obj.number|add:'1' %}
-        <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
-        {% endif %}
-        {% endfor %}
-
-        {% if page_obj.has_next %}
-        <a class="btn btn-danger mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
-        <a class="btn btn-dark mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
-        {% endif %}
-
-        {% endif %}
- </div>
-
-{% endblock content%}
+    {% endblock content %}

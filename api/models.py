@@ -6,4 +6,5 @@ from myapp.models import Movies
 class MovieResource(ModelResource):
     class Meta:
         queryset = Movies.objects.all()
+
         resource_name= 'data'
